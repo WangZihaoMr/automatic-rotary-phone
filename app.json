@@ -1,13 +1,38 @@
 {
-    "pages": [
-        "pages/index/index"
-    ],
-    "window": {
-        "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#fff",
-        "navigationBarTitleText": "Weixin",
-        "navigationBarTextStyle": "black"
-    },
-    "style": "v2",
-    "sitemapLocation": "sitemap.json"
+  "pages": [
+    "pages/shop/shop",
+    "pages/bestBuy/bestBuy",
+    "pages/cart/cart",
+    "pages/mine/mine"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "扫码购",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/shop/shop",
+        "text": "扫码购物",
+        "iconPath": "/assets/images/index02.png",
+        "selectedIconPath": "/assets/images/index01.png"
+      },
+      {
+        "pagePath": "pages/bestBuy/bestBuy",
+        "text": "每日优选",
+        "iconPath": "/assets/images/product02.png",
+        "selectedIconPath": "/assets/images/product01.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "个人中心",
+        "iconPath": "/assets/images/user02.png",
+        "selectedIconPath": "/assets/images/user01.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
 }
