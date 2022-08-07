@@ -3,36 +3,34 @@ import { APIConfig } from '../config/config'
 import wxToPromise from '../utils/wx'
 import exceptionMessage from '../config/exceptionMessage'
 
-// const exceptionMessage = {
-//   201: '功能未开发'
-// }
-
 class Http {
-  // static test() {
-  //   console.log('永不放弃');
-  // }
+  static async request({ url, method = 'GET', data = {}, name = '/api1' }, options) {
+    wx.showLoading()
+    try {
+      const res = await wxToPromise('request', {
+        url: APIConfig[name].baseURL + url,
+        method,
+        data,
+        ...options
+      })
 
-  static async request({ url, method = 'GET', data = {} }, options) {
-    console.log({ ...options });
-    const response = await wxToPromise('request', {
-      url: APIConfig.baseURL + url,
-      method,
-      data,
-      ...options
-    })
+      if (res.statusCode < 400) {
+        wx.hideLoading()
+        return res.data
+      }
 
-    if (response.statusCode < 400) {
-      return response.data
+      if (res.statusCode === 401) {
+        // token过期、登录超时
+        wx.hideLoading()
+        return
+      }
+      Http._showError(res.data.code, res.data.msg)
+      return res
+    } catch (error) {
+      wx.hideLoading()
+      _showError(-1)
+      console.log(error);
     }
-
-    if (response.statusCode === 401) {
-      // token过期、登录超时
-      return
-    }
-
-    console.log(response);
-    Http._showError(response.data.code, response.data.msg)
-    return response
   }
 
   static _showError(code, msg) {
@@ -45,9 +43,5 @@ class Http {
     })
   }
 }
-
-// const http = new Http()
-// http.test()
-// Http.test()
 
 export default Http

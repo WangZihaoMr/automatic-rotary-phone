@@ -5,21 +5,16 @@ class TestModel extends Http {
     return Http.request({
       url: '/api/app/nav',
       method: 'GET',
-      data: {}
+      data: {},
+      name: 'api1'
     })
   }
   static getBanner() {
     return Http.request({
-      url: '/api/app/banner',
+      url: '/api/focus',
       method: 'GET',
-      data: {}
-    })
-  }
-  static getRecommend() {
-    return Http.request({
-      url: '/api/app/recommend/appIndex',
-      method: 'GET',
-      data: {}
+      data: {},
+      name: 'api2'
     })
   }
 }

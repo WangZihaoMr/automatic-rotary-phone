@@ -1,10 +1,8 @@
 // index.js
 // 导入封装api
-import http from '../../utils/http'
 import TestModel from '../../model/api'
 
 Page({
-
   // 获取nav数据
   getNavData() {
     TestModel.getNav().then(res => {
@@ -16,14 +14,6 @@ Page({
   // 获取banner数据
   getBannerData() {
     TestModel.getBanner().then(res => {
-      console.log(res);
-    }).catch(error => {
-      console.log(error);
-    })
-  },
-  // 获取recommend数据
-  getRecommendData() {
-    TestModel.getRecommend().then(res => {
       console.log(res);
     }).catch(error => {
       console.log(error);
@@ -43,7 +33,6 @@ Page({
     // console.log(options, http.request);
     this.getNavData()
     this.getBannerData()
-    this.getRecommendData()
   },
 
   /**
