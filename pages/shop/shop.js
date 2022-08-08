@@ -4,13 +4,16 @@ Page({
   // 获取轮播数据
   async getBannerData() {
     const res = await ShopModel.getShopBanner()
-    console.log(res);
+    this.setData({
+      bannerList: res.data
+    })
+    console.log(res.data);
   },
   /**
    * 页面的初始数据
    */
   data: {
-
+    bannerList: []
   },
 
   /**

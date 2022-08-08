@@ -1,0 +1,6 @@
+<!--components/i-swiper.wxml-->
+<swiper class="swiper" indicator-dots autoplay circular duration="500" interval="3000">
+  <swiper-item class="swiper-item" wx:for="{{bannerList}}" wx:key="link_content">
+    <image src="{{item.banner_img}}"></image>
+  </swiper-item>
+</swiper>
