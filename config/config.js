@@ -3,8 +3,20 @@ const APIConfig = {
     baseURL: 'https://admin.hxwendeng.com',
   },
   'api2': {
-    baseURL: 'http://jd.itying.com'
+    baseURL: 'http://weixin.itying.com'
   }
 }
 
-export { APIConfig }
+/**
+ * 定义白名单
+ */
+const whiteList = ['pages/login/login', 'pages/401/401', 'pages/404/404', 'pages/settings/settings']
+
+/**
+ * token、userInfo
+ */
+const field = {
+  Login_Key: 'token'
+}
+
+export { APIConfig, whiteList, field }

@@ -1,12 +1,25 @@
 // pages/shop/shop.js
 import ShopModel from '../../model/shop'
+import { navigateTo } from '../../utils/navigate'
 Page({
   // 获取商品Code，拿到商品数据
-  handleGetShopCode(e) {
-    console.log(e);
-    const qrcode = e.detail;
+  async handleGetShopCode(e) {
+    const qcode = e.detail;
     // 如果一维码不存在则终止调用商品信息接口，否则调用商品信息接口
-    if (!qrcode) return
+    if (!qcode) return
+    console.log('qcode', qcode);
+    try {
+      const res = await ShopModel.getShopingInfo(qcode)
+      console.log(res);
+      /**
+       * 不需要任何权限就可以访问的页面
+       * 
+       * 需要权限才能访问的页面
+       */
+      navigateTo('/pages/cart/cart')
+    } catch (error) {
+      console.log(error);
+    }
   },
   // 获取轮播数据
   async getBannerData() {

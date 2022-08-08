@@ -1,3 +1,5 @@
+import field from '../utils/storage'
+
 class Storage {
   // 存储数据
   static set(key, value) {
@@ -15,6 +17,12 @@ class Storage {
   static removeAll() {
     wx.clearStorageSync()
   }
+  // token字段处理
+  setToken(token) {
+    wx.setStorageSync(field.Login_Key, token)
+  }
+  // userInfo字段处理
+
 }
 
 export default Storage

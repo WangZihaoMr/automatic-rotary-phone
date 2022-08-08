@@ -22,8 +22,6 @@ Component({
       wx.scanCode({
         onlyFromCamera: true,
         success: (res => {
-          console.log(res);
-          console.log(res.result);
           this.triggerEvent('ShopCode', res.result)
         }),
         fail: (err => {

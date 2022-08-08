@@ -3,7 +3,11 @@
     "pages/shop/shop",
     "pages/bestBuy/bestBuy",
     "pages/cart/cart",
-    "pages/mine/mine"
+    "pages/mine/mine",
+    "pages/login/login",
+    "pages/401/401",
+    "pages/404/404",
+    "pages/settings/settings"
   ],
   "window": {
     "backgroundTextStyle": "light",
