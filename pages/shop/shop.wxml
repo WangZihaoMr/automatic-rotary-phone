@@ -3,10 +3,5 @@
   <!-- 轮播图 -->
   <i-swiper bannerList="{{bannerList}}"></i-swiper>
   <!-- 扫码购按钮 -->
-  <view class="main">
-      <view class="qrcode-wrap">
-        <image src="/assets/images/qrcode.png"></image>
-        <text>请扫描商品条形码</text>
-      </view>
-  </view>
+  <i-code-button></i-code-button>
 </view>

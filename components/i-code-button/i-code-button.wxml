@@ -1,0 +1,7 @@
+<!--components/i-code/i-code.wxml-->
+<view class="main">
+  <view class="qrcode-wrap">
+    <image src="/assets/images/qrcode.png"></image>
+    <text>请扫描商品条形码</text>
+  </view>
+</view>

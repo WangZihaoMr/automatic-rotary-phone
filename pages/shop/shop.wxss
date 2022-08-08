@@ -3,34 +3,3 @@
   display: flex;
   flex-direction: column;
 }
-
-.main {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-}
-
-.qrcode-wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 320rpx;
-  height: 320rpx;
-  border-radius: 50%;
-  margin-top: 80rpx;
-  border: 25rpx solid #FFE49B;
-  background-color: #febe1b;
-}
-
-.qrcode-wrap image {
-  width: 180rpx;
-  height: 160rpx;
-}
-
-.qrcode-wrap text {
-  color : #fff;
-  margin-top: 5px;
-  width: 180rpx;
-  text-align: center;
-}
