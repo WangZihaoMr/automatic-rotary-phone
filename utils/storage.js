@@ -7,7 +7,7 @@ class Storage {
   }
   // 获取数据
   static get(key) {
-    wx.getStorageSync(key)
+    return wx.getStorageSync(key) || ''
   }
   // 删除单条本地数据
   static remove(key) {

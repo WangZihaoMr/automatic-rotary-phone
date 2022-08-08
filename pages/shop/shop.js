@@ -1,22 +1,40 @@
 // pages/shop/shop.js
 import ShopModel from '../../model/shop'
 import { navigateTo } from '../../utils/navigate'
+import { addCart } from '../../common/cart'
 Page({
   // 获取商品Code，拿到商品数据
   async handleGetShopCode(e) {
     const qcode = e.detail;
     // 如果一维码不存在则终止调用商品信息接口，否则调用商品信息接口
-    if (!qcode) return
+    if (!qcode) return;
     console.log('qcode', qcode);
     try {
+      // 获取商品信息
       const res = await ShopModel.getShopingInfo(qcode)
       console.log(res);
+      // 如果商品信息获取失败，则终止执行
+      if (!res.success) return
+      // 获取商品信息
+      const result = res.result
+      // 商品信息数组长度小于0，则终止执行
+      if (result.length <= 0) return
+      // 商品添加到本地：addCart之所以定义成一个方法，是因为别的页面需要使用
+      console.log(result[0]);
+      addCart(result[0])
+      console.log(result);
+      navigateTo('/pages/cart/cart')
       /**
        * 不需要任何权限就可以访问的页面
        * 
        * 需要权限才能访问的页面
        */
-      navigateTo('/pages/cart/cart')
+      /**
+       * 如何把商品的数据在购物车进行显示
+       * 1.通过路由传参，传递到购物车页面
+       * 2.存储到本地
+       * 3.给后台存储一份
+       */
     } catch (error) {
       console.log(error);
     }
