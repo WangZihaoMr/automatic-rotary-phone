@@ -11,13 +11,25 @@ Component({
    * 组件的初始数据
    */
   data: {
-
+    
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
-
+    handleQrCode() {
+      wx.scanCode({
+        onlyFromCamera: true,
+        success: (res => {
+          console.log(res);
+          console.log(res.result);
+          this.triggerEvent('ShopCode', res.result)
+        }),
+        fail: (err => {
+          console.log(err);
+        })
+      })
+    }
   }
 })

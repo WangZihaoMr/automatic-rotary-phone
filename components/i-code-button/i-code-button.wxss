@@ -1,10 +1,4 @@
 /* components/i-code/i-code.wxss */
-.main {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-}
-
 .qrcode-wrap {
   display: flex;
   flex-direction: column;

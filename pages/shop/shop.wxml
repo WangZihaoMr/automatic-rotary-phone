@@ -3,5 +3,7 @@
   <!-- 轮播图 -->
   <i-swiper bannerList="{{bannerList}}"></i-swiper>
   <!-- 扫码购按钮 -->
-  <i-code-button></i-code-button>
+  <view class="main">
+    <i-code-button bindShopCode="handleGetShopCode"></i-code-button>
+  </view>
 </view>

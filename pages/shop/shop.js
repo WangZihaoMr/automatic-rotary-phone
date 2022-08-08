@@ -1,6 +1,13 @@
 // pages/shop/shop.js
 import ShopModel from '../../model/shop'
 Page({
+  // 获取商品Code，拿到商品数据
+  handleGetShopCode(e) {
+    console.log(e);
+    const qrcode = e.detail;
+    // 如果一维码不存在则终止调用商品信息接口，否则调用商品信息接口
+    if (!qrcode) return
+  },
   // 获取轮播数据
   async getBannerData() {
     const res = await ShopModel.getShopBanner()
