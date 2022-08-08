@@ -4,7 +4,7 @@ import wxToPromise from '../utils/wx'
 import exceptionMessage from '../config/exceptionMessage'
 
 class Http {
-  static async request({ url, method = 'GET', data = {}, name = '/api1' }, options) {
+  static async request({ url, method = 'GET', data = {}, name = 'api1' }, options) {
     wx.showLoading()
     try {
       const res = await wxToPromise('request', {
@@ -13,15 +13,14 @@ class Http {
         data,
         ...options
       })
+      wx.hideLoading()
 
       if (res.statusCode < 400) {
-        wx.hideLoading()
         return res.data
       }
 
       if (res.statusCode === 401) {
         // token过期、登录超时
-        wx.hideLoading()
         return
       }
       Http._showError(res.data.code, res.data.msg)
@@ -29,7 +28,7 @@ class Http {
     } catch (error) {
       wx.hideLoading()
       _showError(-1)
-      console.log(error);
+      console.log(error)
     }
   }
 
