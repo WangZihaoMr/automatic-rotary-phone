@@ -1,1 +1,49 @@
 /* pages/cart/cart.wxss */
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.list {}
+
+.bottom {
+  height: 180rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.total {
+  box-sizing: border-box;
+  border-top: 1rpx solid #333;
+  padding: 0 20rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+.price {
+  color: #ff0000;
+}
+
+.action {
+  display: flex;
+  justify-content: space-between;
+}
+
+.action view {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  height: 100rpx;
+}
+
+.action view:nth-child(1) {
+  background-color: #ffa72b;
+}
+
+.action view:nth-child(2) {
+  background-color: #ff0000;
+}

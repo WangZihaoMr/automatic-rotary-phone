@@ -1,2 +1,14 @@
 <!--pages/cart/cart.wxml-->
-<text>pages/cart/cart.wxml</text>
+<view class="container">
+  <view class="list"></view>
+  <view class="bottom">
+    <view class="total">
+      <text>总价：</text>
+      <text class="price">￥{{100.00}}</text>
+    </view>
+    <view class="action">
+      <view>继续添加</view>
+      <view>去结算 (3)</view>
+    </view>
+  </view>
+</view>
