@@ -26,7 +26,16 @@ Page({
   // 商品数量增加/减少优化
   handleNumOptimize(e, action) {
     let _index = e.currentTarget.dataset.index
+    console.log(_index);
     action === 'addNum' ? this.data.cartList[_index].num += 1 : this.data.cartList[_index].num -= 1
+    this.handleNumLess(_index)
+    this.setData({
+      cartList: this.data.cartList
+    })
+    Storage.set('cart', this.data.cartList)
+  },
+  // 当商品数量小于1时处理方法
+  handleNumLess(_index) {
     if (this.data.cartList[_index].num === 0) {
       this.data.cartList[_index].num = 1
       wx.showModal({
@@ -40,10 +49,6 @@ Page({
         })
       })
     }
-    this.setData({
-      cartList: this.data.cartList
-    })
-    Storage.set('cart', this.data.cartList)
   },
   // 总计
   handleTotalPrice() {
@@ -67,14 +72,6 @@ Page({
           detail: res.result
         }
         this.handleGetShopCode(event)
-        this.handleNumAdd()
-        const cartList = Storage.get('cart') || []
-        console.log('123', cartList);
-        this.setData({
-          cartList
-        })
-        console.log('456', this.data.cartList);
-        console.log(res);
       }),
       fail: (err => {
         console.log(err);
@@ -86,11 +83,9 @@ Page({
     const qcode = e.detail;
     // 如果一维码不存在则终止调用商品信息接口，否则调用商品信息接口
     if (!qcode) return;
-    console.log('qcode', qcode);
     try {
       // 获取商品信息
       const res = await ShopModel.getShopingInfo(qcode)
-      console.log(res);
       // 如果商品信息获取失败，则终止执行
       if (!res.success) return
       // 获取商品信息
@@ -98,9 +93,12 @@ Page({
       // 商品信息数组长度小于0，则终止执行
       if (result.length <= 0) return
       // 商品添加到本地：addCart之所以定义成一个方法，是因为别的页面需要使用
-      console.log(result[0]);
       addCart(result[0])
-      console.log(result);
+      const cartList = Storage.get('cart') || []
+      this.setData({
+        cartList
+      })
+      this.handleTotalPrice()
 
     } catch (error) {
       console.log(error);
