@@ -7,7 +7,8 @@
     "pages/login/login",
     "pages/401/401",
     "pages/404/404",
-    "pages/settings/settings"
+    "pages/settings/settings",
+    "pages/order/order"
   ],
   "window": {
     "backgroundTextStyle": "light",

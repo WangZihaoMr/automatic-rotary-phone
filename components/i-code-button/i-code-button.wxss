@@ -1,5 +1,6 @@
 /* components/i-code/i-code.wxss */
 .qrcode-wrap {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,8 +19,22 @@
 }
 
 .qrcode-wrap text {
-  color : #fff;
+  color: #fff;
   margin-top: 5px;
   width: 180rpx;
   text-align: center;
+}
+
+.qrcode-wrap .circle {
+  position: absolute;
+  top: 50rpx;
+  right: 50rpx;
+  display: flex;
+  width: 40rpx;
+  height: 40rpx;
+  text-align: center;
+  justify-content: center;
+  font-size: 26rpx;
+  border-radius: 50%;
+  background-color: #f00;
 }

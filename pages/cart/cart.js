@@ -7,7 +7,6 @@ Page({
   // 获取本地商品数据
   getCartList() {
     const cartList = Storage.get('cart') || []
-    console.log(cartList);
     if (cartList.length < 0) return
     this.setData({
       cartList
@@ -26,7 +25,6 @@ Page({
   // 商品数量增加/减少优化
   handleNumOptimize(e, action) {
     let _index = e.currentTarget.dataset.index
-    console.log(_index);
     action === 'addNum' ? this.data.cartList[_index].num += 1 : this.data.cartList[_index].num -= 1
     this.handleNumLess(_index)
     this.setData({
@@ -99,10 +97,13 @@ Page({
         cartList
       })
       this.handleTotalPrice()
-
     } catch (error) {
       console.log(error);
     }
+  },
+  // 扫一扫码
+  handleScanCode() {
+    this.handleContinueAddShop()
   },
   /**
    * 页面的初始数据

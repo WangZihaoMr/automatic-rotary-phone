@@ -2,9 +2,26 @@
 import ShopModel from '../../model/shop'
 import { navigateTo } from '../../utils/navigate'
 import { addCart } from '../../common/cart'
+import Storage from '../../utils/storage'
 Page({
+  // 获取本地商品数据
+  getCartList() {
+    const cartList = Storage.get('cart') || []
+    const status = cartList.length > 0 ? true : false
+    const count = cartList.length
+    if (cartList.length < 0) return
+    this.setData({
+      cartList,
+      status,
+      count
+    })
+  },
   // 获取商品Code，拿到商品数据
   async handleGetShopCode(e) {
+    // 去结算按钮
+    if (this.data.status) {
+      navigateTo('/pages/order/order')
+    }
     const qcode = e.detail;
     // 如果一维码不存在则终止调用商品信息接口，否则调用商品信息接口
     if (!qcode) return;
@@ -51,13 +68,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-    bannerList: []
+    bannerList: [],
+    status: false,
+    count: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    this.getCartList()
     this.getBannerData()
   },
 

@@ -4,14 +4,20 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    status: {
+      type: Boolean
+    },
+    count: {
+      type: Number
+    }
   },
 
   /**
    * 组件的初始数据
    */
   data: {
-    
+    statusText: '请扫描商品条形码',
+    statusNum: 0
   },
 
   /**
@@ -19,6 +25,10 @@ Component({
    */
   methods: {
     handleQrCode() {
+      if (this.data.status) {
+        this.triggerEvent('ShopCode')
+        return
+      }
       wx.scanCode({
         onlyFromCamera: true,
         success: (res => {

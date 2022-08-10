@@ -1,5 +1,6 @@
 <!--components/i-code/i-code.wxml-->
 <view class="qrcode-wrap" bindtap="handleQrCode">
-  <image src="/assets/images/qrcode.png"></image>
-  <text>请扫描商品条形码</text>
+  <image src="{{status ? '/assets/images/cart_index.png' : '/assets/images/qrcode.png'}}"></image>
+  <text>{{status ? '去结算':'请扫描商品条形码' }}</text>
+  <text class="circle" wx:if="{{status}}">{{count}}</text>
 </view>

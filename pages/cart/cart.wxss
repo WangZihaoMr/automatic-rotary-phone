@@ -111,3 +111,33 @@
 .action view:nth-child(2) {
   background-color: #ff0000;
 }
+
+.empty-wrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.empty-text {
+  color: #909090;
+  margin-top: 200rpx;
+}
+
+.empty-img {
+  width: 350rpx;
+  height: 350rpx;
+  margin: 40rpx 0;
+}
+
+.empty-button {
+  display: block;
+  width: 360rpx;
+  height: 70rpx;
+  text-align: center;
+  line-height: 70rpx;
+  font-weight: bold;
+  border-radius: 8rpx;
+  background-color: #ffa72b;
+}

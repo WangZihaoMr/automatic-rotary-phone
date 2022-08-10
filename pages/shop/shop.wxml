@@ -4,6 +4,6 @@
   <i-swiper bannerList="{{bannerList}}"></i-swiper>
   <!-- 扫码购按钮 -->
   <view class="main">
-    <i-code-button bind:ShopCode="handleGetShopCode"></i-code-button>
+    <i-code-button bind:ShopCode="handleGetShopCode" status="{{status}}" count="{{count}}"></i-code-button>
   </view>
 </view>

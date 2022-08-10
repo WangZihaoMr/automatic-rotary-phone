@@ -1,5 +1,5 @@
 <!--pages/cart/cart.wxml-->
-<view class="container">
+<view class="container" wx:if="{{cartList.length>0}}">
   <!-- 列表区 -->
   <block wx:for="{{cartList}}" wx:key="_id">
     <view class="list">
@@ -24,4 +24,9 @@
       <view>去结算 ({{cartList.length}})</view>
     </view>
   </view>
+</view>
+<view class="empty-wrap">
+  <view class="empty-text">购物车是空的哦~</view>
+  <image src="../../assets/images/cart.png" class="empty-img"></image>
+  <text class="empty-button" bindtap="handleScanCode">扫一扫条形码</text>
 </view>
