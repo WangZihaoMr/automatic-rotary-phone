@@ -4,9 +4,14 @@ import { navigateTo } from '../../utils/navigate'
 Page({
   // 获取本地数据
   getStorageCartData() {
-    const cartList = Storage.get('cart')
+    const cartList = Storage.get("cart")
+    const initCarts = JSON.parse(JSON.stringify(cartList))
+    initCarts.length = 1
     this.setData({
-      cartList
+      cartList,
+      initCarts,
+      resultCartList: cartList,
+      len: cartList.length
     })
   },
   // 总价
@@ -15,7 +20,7 @@ Page({
     this.data.cartList.forEach(item => {
       totalPrice += (item.num * (item.price * 100)) / 100
     })
-    totalPrice = totalPrice.toFixed(2)
+    totalPrice = totalPrice.toFixed(2);
     this.setData({
       totalPrice
     })
@@ -23,7 +28,7 @@ Page({
   // 状态的改变
   handleSwitchChange(e) {
     const bablanceStatus = e.detail.value;
-    this.data.totalPrice = bablanceStatus ? this.data.totalPrice - this.data.bablancePrice : this.data.totalPrice + this.data.bablancePrice
+    this.data.totalPrice = bablanceStatus ? this.data.totalPrice - this.data.bablancePrice : this.data.totalPrice + this.data.bablancePrice;
     this.setData({
       bablanceStatus,
       totalPrice: this.data.totalPrice
@@ -31,11 +36,22 @@ Page({
   },
   // 展开与收起 
   handleShow() {
-
+    if (this.data.cartList.length === this.data.len) {
+      this.setData({
+        cartList: this.data.initCarts
+      })
+    } else {
+      this.setData({
+        cartList: this.data.resultCartList,
+      })
+    }
+    this.setData({
+      showChangeStatus: !this.data.showChangeStatus
+    })
   },
   // 确认支付
   handleConfirmPay() {
-    navigateTo("/pages/success/success")
+    navigateTo("/pages/success/success");
   },
   /**
    * 页面的初始数据
@@ -45,7 +61,11 @@ Page({
     bablanceStatus: false,
     bablancePrice: 4,
     totalPrice: 0,
-    showChangeStatus: false
+    showChangeStatus: false,
+    cartList: [],
+    initCarts: [],
+    resultCartList: [],
+    len: 0
   },
 
   /**

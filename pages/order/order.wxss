@@ -72,6 +72,9 @@
   justify-content: center;
   background-color: #ffffff;
 }
+.showShopCount{
+  padding-right: 10rpx;
+}
 
 .balance-wrap{
   display: flex;

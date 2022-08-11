@@ -7,8 +7,9 @@
       </view>
       <view class="shop-count">x{{item.num}}</view>
     </view>
-    <view class="shopStatus" bindtap="handleShow">
-      共{{cartList.length}}件商品 展开
+    <view class="shopStatus">
+      <text class="showShopCount"> 共{{len}}件商品</text>  
+      <text catchtap="handleShow">{{showChangeStatus ? '展开' : '收起'}}</text>
     </view>
     <view class="balance-wrap">
       <view>余额<text class="priceColor"> (￥{{bablancePrice}})</text></view>

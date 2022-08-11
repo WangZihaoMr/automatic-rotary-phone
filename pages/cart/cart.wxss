@@ -141,3 +141,7 @@
   border-radius: 8rpx;
   background-color: #ffa72b;
 }
+
+.shopStatus .showHide {
+  padding-left: 10rpx !important;
+}
