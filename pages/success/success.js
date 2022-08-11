@@ -1,5 +1,10 @@
 // pages/success/success.js
 Page({
+  handleGoHome() { 
+    wx.switchTab({
+      url: '/pages/shop/shop',
+    })
+  },
 
   /**
    * 页面的初始数据

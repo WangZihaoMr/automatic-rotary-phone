@@ -1,1 +1,23 @@
-<view>支付成功页面</view>
+<view class="container">
+  <view class="success-wrapper">
+    <image class="success-icon" src="../../assets/images/face.png"></image>
+    <view>支付成功</view>
+    <view class="backHome" bindtap="handleGoHome">返回首页</view>
+  </view>
+  <view class="like-wrapper">
+    <view class="like-title">
+      <text>*</text>
+      <view>你可能喜欢</view>
+      <text>*</text>
+    </view>
+    <view class="may-wrapper">
+      <image class="manggo" src="../../assets/images/00.png"></image>
+      <view class="shop-title">海南现摘芒果</view>
+      <view class="shopPrice">￥29.9</view>
+      <view class="shopBox">
+        <text class="shop-count">销量：201件</text>
+        <text class="pay-button">立即购买</text>
+      </view>
+    </view>
+  </view>
+</view>
