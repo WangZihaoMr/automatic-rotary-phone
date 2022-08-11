@@ -1,2 +1,33 @@
-<!--pages/order/order.wxml-->
-<text>pages/order/order.wxml</text>
+<view class="container">
+  <view class="shopInfo-wrap">
+    <view class="list-item" wx:for="{{cartList}}" wx:key="_id">
+      <view class="item">
+        <text class="shopTitle">{{item.title}}</text>
+        <text class="priceColor">￥{{item.price}}</text>
+      </view>
+      <view class="shop-count">x{{item.num}}</view>
+    </view>
+    <view class="shopStatus">
+      共{{cartList.length}}件商品 展开
+    </view>
+    <view class="balance-wrap">
+      <view>余额<text class="priceColor"> (￥{{bablancePrice}})</text></view>
+      <switch color="#ffa72b" bindchange="handleSwitchChange"></switch>
+    </view>
+    <view class="balance-wrap">
+      <view>商品金额</view>
+      <view class="priceColor">￥{{totalPrice }}</view>
+    </view>
+    <view class="balance-wrap">
+      <view>余额减扣</view>
+      <view class="priceColor">-￥{{bablancePrice}}</view>
+    </view>
+    <view>
+      哇哈哈哈
+    </view>
+  </view>
+  <view class="pay-wrap">
+    <view class="true-pay">实际支付: <text class="priceColor">￥{{totalPrice}}</text></view>
+    <view class="confirm-pay">确认支付</view>
+  </view>
+</view>

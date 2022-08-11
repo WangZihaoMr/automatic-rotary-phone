@@ -1,25 +1,55 @@
 // pages/order/order.js
+import Storage from '../../utils/storage'
 Page({
-
+  // 获取本地数据
+  getStorageCartData() {
+    const cartList = Storage.get('cart')
+    this.setData({
+      cartList
+    })
+  },
+  // 总价
+  handleTotalPrice() {
+    let totalPrice = 0;
+    this.data.cartList.forEach(item => {
+      totalPrice += (item.num * (item.price * 100)) / 100
+    })
+    totalPrice = totalPrice.toFixed(2)
+    this.setData({
+      totalPrice
+    })
+  },
+  // 状态的改变
+  handleSwitchChange(e) {
+    const bablanceStatus = e.detail.value;
+    this.data.totalPrice = bablanceStatus ? this.data.totalPrice - this.data.bablancePrice : this.data.totalPrice + this.data.bablancePrice
+    this.setData({
+      bablanceStatus,
+      totalPrice: this.data.totalPrice
+    })
+  },
   /**
    * 页面的初始数据
    */
   data: {
-
+    cartList: [],
+    bablanceStatus: false,
+    bablancePrice: 4,
+    totalPrice: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    this.getStorageCartData()
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {
-
+    this.handleTotalPrice()
   },
 
   /**
