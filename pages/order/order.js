@@ -1,5 +1,6 @@
 // pages/order/order.js
 import Storage from '../../utils/storage'
+import { navigateTo } from '../../utils/navigate'
 Page({
   // 获取本地数据
   getStorageCartData() {
@@ -28,6 +29,14 @@ Page({
       totalPrice: this.data.totalPrice
     })
   },
+  // 展开与收起 
+  handleShow() {
+
+  },
+  // 确认支付
+  handleConfirmPay() {
+    navigateTo("/pages/success/success")
+  },
   /**
    * 页面的初始数据
    */
@@ -35,7 +44,8 @@ Page({
     cartList: [],
     bablanceStatus: false,
     bablancePrice: 4,
-    totalPrice: 0
+    totalPrice: 0,
+    showChangeStatus: false
   },
 
   /**

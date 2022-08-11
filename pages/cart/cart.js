@@ -2,6 +2,7 @@
 import Storage from '../../utils/storage'
 import ShopModel from '../../model/shop'
 import { addCart } from '../../common/cart'
+import { navigateTo } from '../../utils/navigate'
 
 Page({
   // 获取本地商品数据
@@ -52,8 +53,6 @@ Page({
   handleTotalPrice() {
     let totalPrice = 0;
     this.data.cartList.forEach(item => {
-      // const total = (item.num * item.price).toFixed(2)
-      // totalPrice += Number.parseFloat(total)
       totalPrice += (item.num * (item.price * 100)) / 100
     })
     totalPrice = totalPrice.toFixed(2)
@@ -104,6 +103,10 @@ Page({
   // 扫一扫码
   handleScanCode() {
     this.handleContinueAddShop()
+  },
+  // 去结算(订单页)
+  handleGoOrder() {
+    navigateTo('/pages/order/order')
   },
   /**
    * 页面的初始数据

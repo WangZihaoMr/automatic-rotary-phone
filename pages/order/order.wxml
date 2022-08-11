@@ -7,7 +7,7 @@
       </view>
       <view class="shop-count">x{{item.num}}</view>
     </view>
-    <view class="shopStatus">
+    <view class="shopStatus" bindtap="handleShow">
       共{{cartList.length}}件商品 展开
     </view>
     <view class="balance-wrap">
@@ -28,6 +28,6 @@
   </view>
   <view class="pay-wrap">
     <view class="true-pay">实际支付: <text class="priceColor">￥{{totalPrice}}</text></view>
-    <view class="confirm-pay">确认支付</view>
+    <view class="confirm-pay" bindtap="handleConfirmPay">确认支付</view>
   </view>
 </view>

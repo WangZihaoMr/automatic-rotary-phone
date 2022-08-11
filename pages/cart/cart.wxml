@@ -21,7 +21,7 @@
     </view>
     <view class="action">
       <view bindtap="handleContinueAddShop">继续添加</view>
-      <view>去结算 ({{cartList.length}})</view>
+      <view bindtap="handleGoOrder">去结算 ({{cartList.length}})</view>
     </view>
   </view>
 </view>
